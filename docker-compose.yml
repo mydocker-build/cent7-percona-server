@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  mysqldb01:
+    image: cent7-percona-server
+    volumes:
+      - /srv/docker-data/mysqldb01:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "P@ssw0rd#1"
+    ports:
+     - 3307:3306
+    networks:
+      ipaddr:
+        ipv4_address: 172.17.0.2
+networks:
+  ipaddr:
+    external:
+      name: docker1
